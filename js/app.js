@@ -82,7 +82,7 @@ class Tamagotchi {
 
 //Listeners / Handlers
 $("#feed").on('click', (e) => {
-	console.log('hunger button was clicked')
+	console.log('feed button was clicked')
 });
 
 $("#turnOffLights").on('click', (e) => {
