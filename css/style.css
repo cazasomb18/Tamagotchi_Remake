@@ -1,0 +1,9 @@
+body {
+	background-image: url("https://i.imgur.com/Qyc7vSs.jpg");
+	/*background-color: crimson;*/
+}
+
+#tamagotchi_avatar {
+	display: flex;
+}
+
