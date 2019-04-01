@@ -1,15 +1,14 @@
 # Tamagotchi_Remake
 
-Tomagotchi Mini-Project
+Tamagotchi Mini-Project
 Description
 Let's use our front-end web development skills to create a "living" pet! We'll use HTML, CSS, and JavaScript/jQuery to interact with our pet.
 
 Requirements
-Create a repo for your tomagotchi pet
-make a commit after you finish each one of the following
-Create a Class (JS Class, look at your notes if your forget) for your tomagotchi
+Create a repo for your tamagotchi pet, make a commit after you finish each one of the following
+Create a Class (JS Class, look at your notes if your forget) for your tamagotchi
 
-Instatiate your Tomagotchi
+Instatiate your Tamagotchi
 
 Display a character of your choice on the screen to represent your pet
 
@@ -41,7 +40,7 @@ Animate your pet across the screen while it's alive.
 
 Extras
 
-Have your tomagotchi give birth to baby tomagotchi...
+Have your tomagotchi give birth to baby tamagotchi...
 
 ...with special powers (extend the class)!
 
