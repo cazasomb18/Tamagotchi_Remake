@@ -1,9 +1,39 @@
 body {
-	background-image: url("https://i.imgur.com/Qyc7vSs.jpg");
-	/*background-color: crimson;*/
+	display: block;
+	background-color: white;
+	height: 750px;
+	width: 750px;
+}
+
+button {
+	width: 50px;
+	height: 50px;
 }
 
 #tamagotchi_avatar {
-	display: flex;
+	justify-content: center;
+	margin: 0 auto;
 }
+
+#metrics {
+	display: flex;
+	background-color: rgb(0,0,0,);
+	overflow: hidden;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 700;
+}
+
+#metrics div {
+	float: left;
+  	color: #333;
+  	text-align: center;
+  	padding: 14px 16px;
+  	font-size: 17px;
+}
+
+#pet-buttons {
+	display: flex;
+	align-self: center;
+}
+
 
