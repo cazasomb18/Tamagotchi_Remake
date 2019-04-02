@@ -45,8 +45,8 @@ const App = {
 			// console.log(App.petInstance.hunger);
 			// console.log(App.timerHandle);
 			App.timerHandle += 1;
-			App.deathFunction();
 		}, 1000);
+			App.deathFunction();
 	},
 	ageIncrement: function(){
 		if (this.timerHandle % 10 === 0){
@@ -56,7 +56,7 @@ const App = {
 	},
 	hungerIncrement: function(){	
 		if (this.timerHandle % 3 === 0){
-			console.log(this.petInstance.hunger);
+			// console.log(this.petInstance.hunger);
 			this.petInstance.hunger ++;
 		}
 	},
@@ -73,28 +73,17 @@ const App = {
 		}
 	},
 	deathFunction: function(){
-		if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || this.petInstance.sleepiness >=10){
-			this.petInstance.isAlive === false;
-			
+		if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10
+		 || this.petInstance.sleepiness >=10);
+			if (this.petInstance.isAlive === false){
+				break;
+			} console.log('Your pet has died!! You are a terrible parent!');
 		}
-	}
-
-}
-
+	};
 
 
 //timer: set interval - within set interval have it do other things:
 //will have timer after every time is goes through will call bunch of functions
-
-
-
-			// } if (this.timerHandle %5 === 0){
-			// 	console.log(this.petInstance.boredom);
-			// 	this.petInstance.boredom ++;
-			// } if (this.timerHandle %7 === 0){
-			// 	console.log(this.petInstance.sleepiness);
-			// 	this.petInstance.sleepiness ++;
-			// }
 
 
 
@@ -143,8 +132,9 @@ $("#play").on('click', (e) => {
 	console.log('play button was clicked');
 	App.petInstance.boredom -= 1;
 	console.log(`Boredom is now: ${App.petInstance.boredom}`);
-
 });
+
+$("")
 
 
 
