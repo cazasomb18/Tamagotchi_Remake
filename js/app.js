@@ -1,4 +1,4 @@
-console.log("I'm an elf!");
+console.log("JS UP AND RUNNING");
 
 
 /*create instance of pet*/
@@ -28,17 +28,35 @@ class Pet {
 
 
 const App = {
-	timerHandle: null,
+	timerHandle: 0,
 	lightsOn: true,
+	petInstance: null,
 	playGame: function(){
 		const tamagotchi = new Pet('Klyza');
 		this.petInstance = tamagotchi;
-		console.log(this.petInstance);
-		this.timerHandle = 
-		setInterval (function(){
-			this.petInstance.age += 1;
-		}, 3000);
+		console.log(this.petInstance.age);
+		setInterval (function() {
+			console.log(App.petInstance)
+			App.petInstance.age ++;
+			App.hungerIncrement();
+			console.log(App.petInstance.hunger);
+			console.log(App.timerHandle);
+			App.timerHandle += 1;
+		}, 1000);
+	},
+	hungerIncrement: function(){	
+		if (this.timerHandle % 3 === 0){
+			console.log(this.petInstance.hunger);
+			this.petInstance.hunger ++;
+			} if (this.timerHandle %5 === 0){
+				console.log(this.petInstance.boredom);
+				this.petInstance.boredom ++;
+			}
+		},
+
 }
+
+
 
 
 	//petInstance.hunger increment w/ timer at x seconds
@@ -50,12 +68,6 @@ const App = {
 
 //timer: set interval - within set interval have it do other things:
 //will have timer after every time is goes through will call bunch of functions
-
-
-
-
-
-
 
 
 
