@@ -1,13 +1,16 @@
 body {
 	display: block;
-	background-color: white;
-	height: 750px;
-	width: 750px;
+	/*background-image: url("https://i.imgur.com/WacXec4.jpg");*/
+	/*background-size: cover;*/
+	background-color: rgb(255,255,255);
+	max-width: 750px;
 }
 
 button {
 	width: 50px;
 	height: 50px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 700;
 }
 
 #tamagotchi_avatar {
@@ -15,25 +18,43 @@ button {
 	margin: 0 auto;
 }
 
-#metrics {
+#metrics_container {
 	display: flex;
-	background-color: rgb(0,0,0,);
-	overflow: hidden;
+	flex-direction: row;
+	background-color: rgb(255,255,255);
+}
+
+#metrics_container div {
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 700;
+  	color: rgb(0,0,0);
+  	flex-grow: 4;
+  	flex-basis: 20:;
 }
 
-#metrics div {
-	float: left;
-  	color: #333;
-  	text-align: center;
-  	padding: 14px 16px;
-  	font-size: 17px;
+#petName {
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 700;
+	margin: 25px;
+	text-align: center;
 }
 
-#pet-buttons {
+#buttons_container {
 	display: flex;
-	align-self: center;
+	flex-direction: row;
 }
+
+#buttons_container button {
+	background-color: orange;
+	border-radius: 25px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	flex-grow: 3;
+	flex-basis: 25%;
+	font-size: 18px;
+}
+
+
+
+
 
 
