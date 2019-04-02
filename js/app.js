@@ -1,23 +1,23 @@
 console.log("I'm an elf!");
 
-//make a class which will create a tamagotchi class instance
+
+/*create instance of pet*/
 class Pet {
 	constructor(name) {
 		this.name = name;
-		this.hunger = Math.floor(Math.random()*3)+1;
-		this.boredom = Math.floor(Math.random()*3)+1;
-		this.sleepiness = Math.floor(Math.random()*3)+1;
+		this.hunger = Math.floor(Math.random()*3);
+		this.boredom = Math.floor(Math.random()*3);
+		this.sleepiness = Math.floor(Math.random()*3);
 		this.age = 0;
 		this.lightsOn = true;
 		this.isAlive = true;
 	}
 }
 
-/*create instance of pet*/
-const tamagotchi = new Pet('Klyza'); // put this in App object and make the input name 
+// const tamagotchi = new Pet('kid-Goku');put this in App object and make the input name 
 //editable onscreen, and have the button pushed start the game
 
-console.log(tamagotchi); 
+// console.log(tamagotchi); 
 
 
 
@@ -27,27 +27,31 @@ console.log(tamagotchi);
 
 
 
-const App = {				//my app logic
-	petInstance: tamagotchi,
+const App = {
+	timerHandle: null,
+	lightsOn: true,
 	playGame: function(){
+		const tamagotchi = new Pet('Klyza');
+		this.petInstance = tamagotchi;
+		console.log(this.petInstance);
+		this.timerHandle = 
+		setInterval (function(){
+			this.petInstance.age += 1;
+		}, 3000);
+}
 
 
-	},
-	// petInstance.boredom: '',
-	// tamagotchi.sleepiness: '',
-	// tamagotchi.age: , //increment w/ timer at x seconds
-
-};
+	//petInstance.hunger increment w/ timer at x seconds
+	//petInstance.boredom: increment w/ timer at x seconds
+	//petInstance.sleepiness increment w/ timer at x seconds
+	//petInstance.age: increment w/ timer at x seconds
 
 
 
+//timer: set interval - within set interval have it do other things:
+//will have timer after every time is goes through will call bunch of functions
 
 
-
-	// console.log(Pet.boredom);
-	// console.log(Pet.sleepiness);
-	// console.log(Pet.boredom);
-	// console.log(Pet.age);
 
 
 
@@ -87,18 +91,23 @@ const App = {				//my app logic
 //Listeners / Handlers
 $("#feed").on('click', (e) => {
 	console.log('feed button was clicked');
-	tamagotchi.hunger -= 1;
+	App.petInstance.hunger -= 1;
+	console.log(`Hunger is now: ${App.petInstance.hunger}`);
 });
 
 $("#turnOffLights").on('click', (e) => {
 	console.log('turnOffLights button was clicked');
-	app.lightsOn = false;
-	tamagotchi.sleepiness -= 1;
+	App.lightsOn = false;
+	App.petInstance.sleepiness -= 1;
+	// css("backgroundImage") trying to take the opacity down in the background image everytime lights are turned off
+	console.log(`Lights off! Sleepiness is now ${App.petInstance.sleepiness}`);
 });
 
 $("#play").on('click', (e) => {
 	console.log('play button was clicked');
-	tamagotchi.boredom -= 1;
+	App.petInstance.boredom -= 1;
+	console.log(`Boredom is now: ${App.petInstance.boredom}`);
+
 });
 
 
@@ -110,55 +119,3 @@ $("#play").on('click', (e) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// class Barbarian {
-//     constructor(name) {
-//         this.name = name;
-//         this.hunger = Math.random() * (10 - 1) + 1;
-//         this.exhaustion = Math.random() * (10 - 1) + 1;
-//         this.rage = 2;
-//         this.age = Math.random() * (100 - 1) + 1;
-
-//     }
-//     attack() {
-//         $('.slime').on('click', (e) => {
-//             console.log('clicked!');
-//             this.rage = this.rage + 1 ;
-            
-//         })
-//         // this.rage = this.rage + 1;
-//         console.log( this.name +  " attacks!!");
-        
-//         }
-//     }
-
-// const game = {
-//     currentPlayer: null,
-//     start: function() {
-//         this.currentPlayer = new Barbarian('Barb');
-//         console.log(this.currentPlayer);
-//         this.currentPlayer.attack();
-        
-//     }
-
-
-// }
-
-// $('#barbarian').on('click', () => {
-//     console.log("RAAAAAAGGGGGGEEEEEEEE!!!!!");
-// })
-
-
-
-// game.start()
