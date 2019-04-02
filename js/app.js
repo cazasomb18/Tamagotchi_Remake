@@ -37,32 +37,49 @@ const App = {
 		console.log(this.petInstance.age);
 		setInterval (function() {
 			console.log(App.petInstance)
-			App.petInstance.age ++;
+			// App.petInstance.age ++;
 			App.hungerIncrement();
-			console.log(App.petInstance.hunger);
-			console.log(App.timerHandle);
+			App.boredomIncrement();
+			App.sleepinessIncrement();
+			App.ageIncrement();
+			// console.log(App.petInstance.hunger);
+			// console.log(App.timerHandle);
 			App.timerHandle += 1;
+			App.deathFunction();
 		}, 1000);
+	},
+	ageIncrement: function(){
+		if (this.timerHandle % 10 === 0){
+			// console.log(this.petInstance.age);
+			this.petInstance.age ++;
+		}
 	},
 	hungerIncrement: function(){	
 		if (this.timerHandle % 3 === 0){
 			console.log(this.petInstance.hunger);
 			this.petInstance.hunger ++;
-			} if (this.timerHandle %5 === 0){
-				console.log(this.petInstance.boredom);
-				this.petInstance.boredom ++;
-			}
-		},
+		}
+	},
+	boredomIncrement: function(){
+		if (this.timerHandle % 5 === 0){
+			// console.log(this.petInstance.boredom);
+			this.petInstance.boredom ++;
+		}
+	},
+	sleepinessIncrement: function(){
+		if (this.timerHandle % 7 === 0){
+			// console.log(this.petInstance.sleepiness);
+			this.petInstance.sleepiness ++;
+		}
+	},
+	deathFunction: function(){
+		if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || this.petInstance.sleepiness >=10){
+			this.petInstance.isAlive === false;
+			
+		}
+	}
 
 }
-
-
-
-
-	//petInstance.hunger increment w/ timer at x seconds
-	//petInstance.boredom: increment w/ timer at x seconds
-	//petInstance.sleepiness increment w/ timer at x seconds
-	//petInstance.age: increment w/ timer at x seconds
 
 
 
@@ -71,6 +88,13 @@ const App = {
 
 
 
+			// } if (this.timerHandle %5 === 0){
+			// 	console.log(this.petInstance.boredom);
+			// 	this.petInstance.boredom ++;
+			// } if (this.timerHandle %7 === 0){
+			// 	console.log(this.petInstance.sleepiness);
+			// 	this.petInstance.sleepiness ++;
+			// }
 
 
 
