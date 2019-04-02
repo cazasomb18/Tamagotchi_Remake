@@ -13,18 +13,24 @@ button {
 	font-weight: 700;
 }
 
-#tamagotchi_avatar {
-	justify-content: center;
-	margin: 0 auto;
+#tamagotchiAvatar {
+	display: flex;
 }
 
-#metrics_container {
+#tamagotchiAvatar img {			/*need .png file (transparent background)*/
+	justify-content: center;
+	margin: auto;
+/*	width: 25%;
+	height: auto;*/
+}
+
+#metricsContainer {
 	display: flex;
 	flex-direction: row;
 	background-color: rgb(255,255,255);
 }
 
-#metrics_container div {
+#metricsContainer div {
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 700;
   	color: rgb(0,0,0);
@@ -39,12 +45,13 @@ button {
 	text-align: center;
 }
 
-#buttons_container {
+#buttonsContainer {
 	display: flex;
 	flex-direction: row;
+	margin: 15%;
 }
 
-#buttons_container button {
+#buttonsContainer button {
 	background-color: orange;
 	border-radius: 25px;
 	font-family: 'IBM Plex Sans', sans-serif;
