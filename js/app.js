@@ -4,32 +4,39 @@ console.log("I'm an elf!");
 class Pet {
 	constructor(name) {
 		this.name = name;
+		this.hunger = Math.floor(Math.random()*3)+1;
 		this.boredom = Math.floor(Math.random()*3)+1;
 		this.sleepiness = Math.floor(Math.random()*3)+1;
-		this.boredom = Math.floor(Math.random()*3)+1;
 		this.age = 0;
 		this.lightsOn = true;
 		this.isAlive = true;
 	}
 }
 
-const tamagotchi = new Pet('Klyza'); /*create instance of pet*/
+/*create instance of pet*/
+const tamagotchi = new Pet('Klyza'); // put this in App object and make the input name 
+//editable onscreen, and have the button pushed start the game
+
+console.log(tamagotchi); 
 
 
 
-
-
-//make and object to put all your stuff into - sleepy, hungry, timer, methods(), etc. 
+//make an object to put all your stuff into it - sleepy, hungry, timer, methods(), etc. 
 //don't try to write logic here!  Don't try to write methods in the global scale - too
 //hard to rewrite things after declared in the global scale.
 
 
 
 const App = {				//my app logic
-	petInstance: null,
+	petInstance: tamagotchi,
 	playGame: function(){
-		
+
+
 	},
+	// petInstance.boredom: '',
+	// tamagotchi.sleepiness: '',
+	// tamagotchi.age: , //increment w/ timer at x seconds
+
 };
 
 
@@ -80,18 +87,18 @@ const App = {				//my app logic
 //Listeners / Handlers
 $("#feed").on('click', (e) => {
 	console.log('feed button was clicked');
-	app.hunger -= 3;
+	tamagotchi.hunger -= 1;
 });
 
 $("#turnOffLights").on('click', (e) => {
 	console.log('turnOffLights button was clicked');
 	app.lightsOn = false;
-	app.sleepiness -= 3;
+	tamagotchi.sleepiness -= 1;
 });
 
 $("#play").on('click', (e) => {
 	console.log('play button was clicked');
-	app.boredom -= 3;
+	tamagotchi.boredom -= 1;
 });
 
 
