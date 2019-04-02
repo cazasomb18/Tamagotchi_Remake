@@ -1,7 +1,9 @@
 body {
 	display: block;
-	/*background-image: url("https://i.imgur.com/WacXec4.jpg");*/
-	/*background-size: cover;*/
+	max-height: 300px;
+	max-width: 300px;
+	background-image: url("https://i.imgur.com/5lJ5myr.jpg");
+	background-size: cover;
 	background-color: rgb(255,255,255);
 	max-width: 750px;
 }
@@ -14,26 +16,24 @@ button {
 }
 
 #tamagotchiAvatar {
-	display: flex;
+	display: grid;
 }
 
-#tamagotchiAvatar img {			/*need .png file (transparent background)*/
-	justify-content: center;
-	margin: auto;
-/*	width: 25%;
-	height: auto;*/
+#tamagotchiAvatar img {
+	margin: 0 auto;
+	width: 15%;
+	height: auto;
 }
 
 #metricsContainer {
 	display: flex;
 	flex-direction: row;
-	background-color: rgb(255,255,255);
 }
 
 #metricsContainer div {
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 700;
-  	color: rgb(0,0,0);
+  	color: rgb(255,255,255);
   	flex-grow: 4;
   	flex-basis: 20:;
 }
@@ -43,6 +43,7 @@ button {
 	font-weight: 700;
 	margin: 25px;
 	text-align: center;
+	color: rgb(255,255,255);
 }
 
 #buttonsContainer {
@@ -59,9 +60,4 @@ button {
 	flex-basis: 25%;
 	font-size: 18px;
 }
-
-
-
-
-
 
