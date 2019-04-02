@@ -37,16 +37,15 @@ const App = {
 		console.log(this.petInstance.age);
 		setInterval (function() {
 			console.log(App.petInstance)
-			// App.petInstance.age ++;
 			App.hungerIncrement();
 			App.boredomIncrement();
 			App.sleepinessIncrement();
 			App.ageIncrement();
-			// console.log(App.petInstance.hunger);
-			// console.log(App.timerHandle);
 			App.timerHandle += 1;
-		}, 1000);
-			App.deathFunction();
+		}, 100);
+		this.deathFunction();
+		if (this.petInstance.isAlive === false)
+		return "GAME OVER!"
 	},
 	ageIncrement: function(){
 		if (this.timerHandle % 10 === 0){
@@ -73,13 +72,13 @@ const App = {
 		}
 	},
 	deathFunction: function(){
-		if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10
-		 || this.petInstance.sleepiness >=10);
-			if (this.petInstance.isAlive === false){
-				break;
-			} console.log('Your pet has died!! You are a terrible parent!');
+		if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || this.petInstance.sleepiness >=10){
+			this.petInstance.isAlive === false;
+			console.log(App.petInstance.isAlive);
 		}
-	};
+	}  /*if (App.petInstance.isAlive = false)*/
+}
+
 
 
 //timer: set interval - within set interval have it do other things:
