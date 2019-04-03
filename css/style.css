@@ -1,7 +1,7 @@
 body {
-	display: block;
+	/*display: none;*/
 	background-color: rgba(0,0,0,1);
-	max-width: 700px;
+	/*max-width: 700px;x*/
 	background-image: url("https://i.imgur.com/5lJ5myr.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -16,7 +16,7 @@ button {
 
 #screenContainer {
 	display: block;
-	max-width: 500px;
+	max-width: 700px;
 }
 
 #tamagotchiAvatar {
@@ -67,6 +67,7 @@ button {
 	flex-grow: 3;
 	flex-basis: 25%;
 	font-size: 18px;
+	align-self: center;
 }
 
 #metricsContainer, div{
