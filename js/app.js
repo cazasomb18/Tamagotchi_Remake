@@ -23,67 +23,69 @@ const App = {
             this.petInstance = tamagotchi;
             setInterval(function() {
                 App.ageIncrement();
-                App.timerHandle += 1;
                 App.hungerIncrement(); 
                 App.boredomIncrement(); 
                 App.sleepinessIncrement(); 
+                App.timerHandle += 1;
                 App.deathFunction();
                 console.log(App.petInstance)
-            }, 300);
+            }, 1000)
             if (this.petInstance.isAlive = false){
             	clearInterval(deathFunction());
             }
         },
         ageIncrement: function() {
             if (this.timerHandle % 10 === 0) {  //this
-                // console.log(this.petInstance.age);
-                this.petInstance.age +=1;
+                console.log(this.petInstance.age);
+                this.petInstance.age += 1;
             }
         },
         hungerIncrement: function() {
             if (this.timerHandle % 3 === 0) { //this
-                // console.log(this.petInstance.hunger);
-                this.petInstance.hunger +=1;
+                console.log(this.petInstance.hunger);
+                this.petInstance.hunger += 1;
             }
         },
         boredomIncrement: function() {  //this
             if (this.timerHandle % 5 === 0) {
-                // console.log(this.petInstance.boredom);
-                this.petInstance.boredom +=1;
+                console.log(this.petInstance.boredom);
+                this.petInstance.boredom += 1;
             }
         },
         sleepinessIncrement: function() {
             if (this.timerHandle % 7 === 0) {
-                // console.log(this.petInstance.sleepiness);
-                this.petInstance.sleepiness +=1;
+                console.log(this.petInstance.sleepiness);
+                this.petInstance.sleepiness += 1;
             }
         },
         deathFunction: function() {
                 if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || this.petInstance.sleepiness >= 10) {
-                    // this.petInstance = null;
+                    this.petInstance = null;
                     console.log('GAME OVER YOU LET YOUR PET DIE!');
                     this.isAlive === false;
                 }
+			}
+		};
 
 
 //Listeners / Handlers
 $("#feed").on('click', (e) => {
     console.log('feed button was clicked');
     App.petInstance.hunger -= 1;
-    // console.log(`Hunger is now: ${App.petInstance.hunger}`);
+    console.log(`Hunger is now: ${App.petInstance.hunger}`);
 });
 
 $("#toggleLights").on('click', (e) => {
     console.log('toggleLights button was clicked');
-    App.petInstance.sleepiness -=1; //
+    App.petInstance.sleepiness -= 1; //
     $("#screenContainer").css("backgroundColor", 'rgba(0,0,0,.7)');
     App.toggleLights === false; //===
     if (App.toggleLights === false) { //===
         App.toggleLights = true; //=
-        // App.petInstance.sleepiness -= 1;
+        App.petInstance.sleepiness -= 1;
     } else {
        App.toggleLights = true; //false
-       $("#screenContainer").css("backgroundColor", 'rgba(0,0,0,1)');
+       $("#screenContainer").css("backgroundColor", 'rgba(0,0,0)');
     }
 
 });
@@ -91,9 +93,8 @@ $("#toggleLights").on('click', (e) => {
 $("#play").on('click', (e) => {
     console.log('play button was clicked');
     App.petInstance.boredom -= 1;
-    // console.log(`Boredom is now: ${App.petInstance.boredom}`);
+    console.log(`Boredom is now: ${App.petInstance.boredom}`);
 })
-}}
 
 $('#nameButton').on('click', () => {
 	const petName = $('#nameBox').val();
