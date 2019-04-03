@@ -67,22 +67,7 @@ button {
 	font-size: 18px;
 }
 
-#boredomeOutput{
-	display: block;
-	color: white;
-	width: 10%;
+#metricsContainer, div{
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 700;
 }
-
-#sleepinessOutput{
-
-}
-
-#hungerOutput{
-
-}
-
-#ageOutput{
-
-}
-
-

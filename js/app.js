@@ -28,6 +28,10 @@ const App = {
                 App.sleepinessIncrement(); 
                 App.timerHandle += 1;
                 App.deathFunction();
+                App.displayName();
+                App.displayHunger();
+                App.displaySleepiness();
+                App.displayAge();
                 console.log(App.petInstance)
             }, 1000)
             if (this.petInstance.isAlive = false){
@@ -59,16 +63,43 @@ const App = {
             }
         },
         deathFunction: function() {
-                if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || this.petInstance.sleepiness >= 10) {
+                if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || 
+                	this.petInstance.sleepiness >= 10) {
                     this.petInstance = null;
                     console.log('GAME OVER YOU LET YOUR PET DIE!');
                     this.isAlive === false;
                 }
-			}
-		};
+			},
+		displayName: function (){
+			const inputValue = $("#nameBox").val();
+				console.log(inputValue);
+				$('#petNameContainer').text(`${inputValue}`);
+				$('#nameBox').val('');
+			},
+		displayHunger: function(){
+			$('#hungerOutput').text(`${this.petInstance.hunger}`);
+			$('#hungerOutput').val('');
+			},
+		displaySleepiness: function(){
+			$('#sleepinessOutput').text(`${this.petInstance.sleepiness}`);
+			$('#sleepinessOutput').val('');
+			// $('#sleepinessOutput').text(`${this.petInstance.sleepiness}`);
+		},
+		displayAge: function(){
+			$('#ageOutput').text(`${this.petInstance.age}`);
+		}
+	};
 
+
+//     }
+//     displayAge() { 
+//     	$('#age').text(`Age ${game.currentPlayer.age}`);
+
+
+;
 
 //Listeners / Handlers
+
 $("#feed").on('click', (e) => {
     console.log('feed button was clicked');
     App.petInstance.hunger -= 1;
@@ -76,18 +107,17 @@ $("#feed").on('click', (e) => {
 });
 
 $("#toggleLights").on('click', (e) => {
-    console.log('toggleLights button was clicked');
-    App.petInstance.sleepiness -= 1; //
-    $("#screenContainer").css("backgroundColor", 'rgba(0,0,0,.7)');
-    App.toggleLights === false; //===
-    if (App.toggleLights === false) { //===
-        App.toggleLights = true; //=
-        App.petInstance.sleepiness -= 1;
-    } else {
-       App.toggleLights = true; //false
-       $("#screenContainer").css("backgroundColor", 'rgba(0,0,0)');
-    }
-
+            console.log('toggleLights button was clicked');
+            App.petInstance.sleepiness -= 1; //
+            $("#screenContainer").css("backgroundColor", 'rgba(0,0,0,.7)');
+            App.toggleLights === false;
+            if (App.toggleLights === false) {
+                App.toggleLights = true;
+            	$("#screenContainer").css("backgroundColor", 'rgb(0,0,0)');
+                App.petInstance.sleepiness -= 1;
+            } else {
+                App.toggleLights = true;
+            }
 });
 
 $("#play").on('click', (e) => {
@@ -102,10 +132,7 @@ $('#nameButton').on('click', () => {
 	App.playGame();
 });
 
-$('#boredomeOutput').change(function(){
-	const boredOutput = $('#boredOutput').val();
-	("#boredOutput").append(`${boredOutput.val()}`);
-})
+
 
 
 
