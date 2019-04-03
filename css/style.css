@@ -70,4 +70,18 @@ button {
 #metricsContainer, div{
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 700;
+	color: rgba(255,255,255);
+}
+
+#nameDisplayContainer{
+	display: grid;
+
+}
+
+#nameDisplayContainer, div{
+	justify-content: center;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+
 }

@@ -11,6 +11,7 @@ class Pet {
 		this.age = 0;
 		this.toggleLights = true;
 		this.isAlive = true;
+		this.secondAvatar = 'images/goku_nimbus.png';
 	}
 }
 
@@ -32,8 +33,10 @@ const App = {
                 App.displayHunger();
                 App.displaySleepiness();
                 App.displayAge();
-                console.log(App.petInstance)
-            }, 1000)
+                App.displayBoredom();
+                App.morphAvatar();
+                console.log(App.petInstance);
+            }, 300)
             if (this.petInstance.isAlive = false){
             	clearInterval(deathFunction());
             }
@@ -66,15 +69,14 @@ const App = {
                 if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || 
                 	this.petInstance.sleepiness >= 10) {
                     this.petInstance = null;
-                    console.log('GAME OVER YOU LET YOUR PET DIE!');
                     this.isAlive === false;
+                    this.stopTimer();
+                    console.log('GAME OVER YOU LET YOUR PET DIE!');
                 }
 			},
 		displayName: function (){
-			const inputValue = $("#nameBox").val();
-				console.log(inputValue);
-				$('#petNameContainer').text(`${inputValue}`);
-				$('#nameBox').val('');
+			const $petName = $('#nameBox').val();
+			$('#nameDisplay').text(`${this.petInstance.name}`).val();
 			},
 		displayHunger: function(){
 			$('#hungerOutput').text(`${this.petInstance.hunger}`);
@@ -83,20 +85,26 @@ const App = {
 		displaySleepiness: function(){
 			$('#sleepinessOutput').text(`${this.petInstance.sleepiness}`);
 			$('#sleepinessOutput').val('');
-			// $('#sleepinessOutput').text(`${this.petInstance.sleepiness}`);
 		},
 		displayAge: function(){
 			$('#ageOutput').text(`${this.petInstance.age}`);
-		}
+		},
+		displayBoredom: function(){
+			$('#boredomOutput').text(`${this.petInstance.boredom}`);
+			$('#boredomOutput').val('');
+		},
+		morphAvatar: function (){
+			// const $image = $('#image');
+			if (this.petInstance.age % 5 === 0){
+				let a = Math.random();
+				$("#tamagotchiAvatar").css("opacity", `${a}`);
+				} else ($("#tamagotchiAvatar").css("opacity", '1'));
+			},
+		stopTimer: function (){
+			const stopCondition = App.playGame(setInterval);
+			clearInterval(stopCondition);
+		},
 	};
-
-
-//     }
-//     displayAge() { 
-//     	$('#age').text(`Age ${game.currentPlayer.age}`);
-
-
-;
 
 //Listeners / Handlers
 
@@ -138,3 +146,10 @@ $('#nameButton').on('click', () => {
 
 
 
+		// // animateAvatar: function (){
+		// // 	$("#image").getBoundingClientRect();
+		// // 	if (this.petInstance.isAlive || this.petInstance.boredom >= 10 ||
+		// // 	 this.petInstance.sleepiness >=10 || this.petInstance.hunger >= 10){
+		// // 		App.clearInterval();
+		// // 	}
+		// },
