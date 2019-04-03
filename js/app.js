@@ -19,7 +19,7 @@ const App = {
         toggleLights: true,
         petInstance: null,
         playGame: function() {
-            const tamagotchi = new Pet('Klyza');
+            const tamagotchi = new Pet($('#nameBox').val());
             this.petInstance = tamagotchi;
             setInterval(function() {
                 console.log(App.petInstance)
@@ -62,6 +62,7 @@ const App = {
                 }
 
 
+//Listeners / Handlers
 $("#feed").on('click', (e) => {
     console.log('feed button was clicked');
     App.petInstance.hunger -= 1;
@@ -92,41 +93,17 @@ $("#play").on('click', (e) => {
 }
 
 $('#nameButton').on('click', () => {
-	console.log('click works')
-	const valueOfInput = $('#nameBox').val();
-	console.log(valueOfInput);
+	const petName = $('#nameBox').val();
+	console.log(`${petName} IS ALIVE!! BE RESPONSIBLE!!`);
 	App.playGame();
 });
 
-
-// $('#begin-btn').on('click', () => {
-//     const tamaName = $('#input-box').val();
-//     $('h2').text(`${tamaName} is ALIVE! Keep it that way!!`); 
-//     game.startTimer()
-// });
-
-
-//timer: set interval - within set interval have it do other things:
-//will have timer after every time is goes through will call bunch of functions
+$('#boredomeOutput').change(function(){
+	const boredOutput = $('#boredOutput').val();
+	("#boredOutput").append(outedOutput).val();
+})
 
 
 
 
-//Listeners / Handlers
 
-
-
-
-// $("#toggleLights").on(function(e) {
-// 	console.log('Lights off!  First handler for .toggle() called.')
-// 	App.toggleLights = false;
-// 	App.petInstance.sleepiness -= 1;
-// 	$("#screenContainer").css('backgroundColor', 'rgba(0,0,0,.6');
-// 	console.log(`Lights off! Sleepiness is now ${App.petInstance.sleepiness}`);
-// }, function(e) {
-// 	console.log('Lights on!  First handler for .toggle() called.')
-// 	App.toggleLights = true;
-// 	App.petInstance.sleepiness += 1;
-// 	$("#screenContainer").css('backgroundColor', 'rgba(0,0,0,1)');
-// 	console.log(`Lights on! Sleepiness is now ${App.petInstance.sleepiness}`);
-// });
