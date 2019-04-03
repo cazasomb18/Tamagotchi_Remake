@@ -16,16 +16,18 @@ button {
 
 #screenContainer {
 	display: block;
-	max-width: 700px;
+	max-width: 500px;
 }
 
 #tamagotchiAvatar {
 	display: grid;
+	padding: 50px;
+
 }
 
 #tamagotchiAvatar img {
-	margin: 0 auto;
-	width: 15%;
+	margin: auto;
+	width: 12%;
 	height: auto;
 }
 
@@ -43,7 +45,7 @@ button {
   	flex-basis: 20;
 }
 
-#petNameContainer{
+#petNameContainer {
 	display: flexbox;
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 700;

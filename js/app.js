@@ -11,9 +11,18 @@ class Pet {
 		this.age = 0;
 		this.toggleLights = true;
 		this.isAlive = true;
-		this.secondAvatar = 'images/goku_nimbus.png';
+		// this.secondAvatar = 'images/goku_nimbus.png';
 	}
-}
+};
+
+
+
+
+
+
+
+
+
 
 const App = {
         timerHandle: 0,
@@ -35,6 +44,7 @@ const App = {
                 App.displayAge();
                 App.displayBoredom();
                 App.morphAvatar();
+                App.animateAvatar();
                 console.log(App.petInstance);
             }, 300)
             if (this.petInstance.isAlive = false){
@@ -67,11 +77,10 @@ const App = {
         },
         deathFunction: function() {
                 if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || 
-                	this.petInstance.sleepiness >= 10) {
-                    this.petInstance = null;
-                    this.isAlive === false;
-                    this.stopTimer();
-                    console.log('GAME OVER YOU LET YOUR PET DIE!');
+                	this.petInstance = null || this.petInstance.sleepiness >= 10 || 
+                	App.isAlive === false;) {
+                    console.log('YOU ARE A TERRIBLE PARENT AND YOUR PET HAS DIED!!!');
+                    App.
                 }
 			},
 		displayName: function (){
@@ -94,19 +103,44 @@ const App = {
 			$('#boredomOutput').val('');
 		},
 		morphAvatar: function (){
-			// const $image = $('#image');
 			if (this.petInstance.age % 5 === 0){
 				let a = Math.random();
 				$("#tamagotchiAvatar").css("opacity", `${a}`);
 				} else ($("#tamagotchiAvatar").css("opacity", '1'));
 			},
-		stopTimer: function (){
-			const stopCondition = App.playGame(setInterval);
-			clearInterval(stopCondition);
-		},
-	};
+		animateAvatar: function(){
+			if (this.timerHandle % 2 === 0){
+				$('#image').css("padding-left", 50)
+				$('#image').css("padding-right", 0)
+
+			} else if (this.timerHandle % 2 === 1)
+				$('#image').css("padding-left", 0)
+				$("#image").css("padding-right", 50);
+				} 
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// animateAvatar: function(){
+		// 	if (this.petInstance.isAlive === true){
+		// 		('#tamagotchiAvatar').animate({ width: 100 }, "easeInSine");
+		// 	}
+		// }
 
 //Listeners / Handlers
+
+
+
 
 $("#feed").on('click', (e) => {
     console.log('feed button was clicked');
@@ -142,14 +176,3 @@ $('#nameButton').on('click', () => {
 
 
 
-
-
-
-
-		// // animateAvatar: function (){
-		// // 	$("#image").getBoundingClientRect();
-		// // 	if (this.petInstance.isAlive || this.petInstance.boredom >= 10 ||
-		// // 	 this.petInstance.sleepiness >=10 || this.petInstance.hunger >= 10){
-		// // 		App.clearInterval();
-		// // 	}
-		// },
