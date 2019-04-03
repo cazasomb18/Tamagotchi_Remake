@@ -42,7 +42,8 @@ button {
   	flex-basis: 20;
 }
 
-#petName {
+#petNameContainer{
+	display: flexbox;
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 700;
 	margin: 25px;
@@ -64,4 +65,7 @@ button {
 	flex-basis: 25%;
 	font-size: 18px;
 }
+
+
+
 

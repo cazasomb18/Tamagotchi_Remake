@@ -14,15 +14,6 @@ class Pet {
 	}
 }
 
-// const tamagotchi = new Pet('kid-Goku');put this in App object and make the input name 
-//editable onscreen, and have the button pushed start the game
-
-
-
-//make an object to put all your stuff into it - sleepy, hungry, timer, methods(), etc. 
-//don't try to write logic here!  Don't try to write methods in the global scale - too
-//hard to rewrite things after declared in the global scale.
-
 const App = {
         timerHandle: 0,
         toggleLights: true,
@@ -84,9 +75,9 @@ $("#toggleLights").on('click', (e) => {
     App.toggleLights === false; //===
     if (App.toggleLights === false) { //===
         App.toggleLights = true; //=
-        App.petInstance.sleepiness += 1; //-=1
+        App.petInstance.sleepiness -= 1; //-=1
     } else {
-       App.toggleLights = false; //false
+       App.toggleLights = true; //false
        $("#screenContainer").css("backgroundColor", 'rgba(0,0,0,1)');
     }
 
@@ -99,6 +90,14 @@ $("#play").on('click', (e) => {
 })
 }
 }
+
+$('#nameButton').on('click', () => {
+	console.log('click works')
+	const valueOfInput = $('#nameBox').val();
+	console.log(valueOfInput);
+	App.playGame();
+});
+
 
 // $('#begin-btn').on('click', () => {
 //     const tamaName = $('#input-box').val();
