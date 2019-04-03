@@ -9,7 +9,7 @@ class Pet {
 		this.boredom = Math.floor(Math.random()*3);
 		this.sleepiness = Math.floor(Math.random()*3);
 		this.age = 0;
-		this.lightsOn = true;
+		this.toggleLights = true;
 		this.isAlive = true;
 	}
 }
@@ -17,35 +17,28 @@ class Pet {
 // const tamagotchi = new Pet('kid-Goku');put this in App object and make the input name 
 //editable onscreen, and have the button pushed start the game
 
-// console.log(tamagotchi); 
-
 
 
 //make an object to put all your stuff into it - sleepy, hungry, timer, methods(), etc. 
 //don't try to write logic here!  Don't try to write methods in the global scale - too
 //hard to rewrite things after declared in the global scale.
 
-
-
 const App = {
 	timerHandle: 0,
-	lightsOn: true,
+	toggleLights: true,
 	petInstance: null,
 	playGame: function(){
 		const tamagotchi = new Pet('Klyza');
 		this.petInstance = tamagotchi;
-		console.log(this.petInstance.age);
 		setInterval (function() {
 			console.log(App.petInstance)
 			App.hungerIncrement();
 			App.boredomIncrement();
 			App.sleepinessIncrement();
 			App.ageIncrement();
+			App.deathFunction();
 			App.timerHandle += 1;
-		}, 100);
-		this.deathFunction();
-		if (this.petInstance.isAlive === false)
-		return "GAME OVER!"
+		}, 300);
 	},
 	ageIncrement: function(){
 		if (this.timerHandle % 10 === 0){
@@ -73,13 +66,8 @@ const App = {
 	},
 	deathFunction: function(){
 		if (this.petInstance.hunger >= 10 || this.petInstance.boredom >= 10 || this.petInstance.sleepiness >=10){
-			this.petInstance.isAlive === false;
-			console.log(App.petInstance.isAlive);
+			this.petInstance = null;
 		}
-	}  /*if (App.petInstance.isAlive = false)*/
-}
-
-
 
 //timer: set interval - within set interval have it do other things:
 //will have timer after every time is goes through will call bunch of functions
@@ -87,44 +75,27 @@ const App = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Listeners / Handlers
+
 $("#feed").on('click', (e) => {
 	console.log('feed button was clicked');
 	App.petInstance.hunger -= 1;
 	console.log(`Hunger is now: ${App.petInstance.hunger}`);
 });
 
-$("#turnOffLights").on('click', (e) => {
-	console.log('turnOffLights button was clicked');
-	App.lightsOn = false;
-	App.petInstance.sleepiness -= 1;
-	// css("backgroundImage") trying to take the opacity down in the background image everytime lights are turned off
-	console.log(`Lights off! Sleepiness is now ${App.petInstance.sleepiness}`);
+$("#toggleLights").on('click', (e) => {
+    console.log('toggleLights button was clicked');
+    // App.petInstance.sleepiness -=1;
+    $("#screenContainer").css("backgroundColor", 'rgba(0,0,0,.7)');
+    App.toggleLights === false; //===
+    if (App.toggleLights === false) { //===
+        App.toggleLights = true; //=
+        App.petInstance.sleepiness -= 1;
+    } else {
+        App.toggleLights = false; //=
+        $("#screenContainer").css("backgroundColor", 'rgba(0,0,0)');
+    }
+   	
 });
 
 $("#play").on('click', (e) => {
@@ -132,15 +103,19 @@ $("#play").on('click', (e) => {
 	App.petInstance.boredom -= 1;
 	console.log(`Boredom is now: ${App.petInstance.boredom}`);
 });
-
-$("")
-
+}}
 
 
-
-
-
-
-
-
-
+// $("#toggleLights").on(function(e) {
+// 	console.log('Lights off!  First handler for .toggle() called.')
+// 	App.toggleLights = false;
+// 	App.petInstance.sleepiness -= 1;
+// 	$("#screenContainer").css('backgroundColor', 'rgba(0,0,0,.6');
+// 	console.log(`Lights off! Sleepiness is now ${App.petInstance.sleepiness}`);
+// }, function(e) {
+// 	console.log('Lights on!  First handler for .toggle() called.')
+// 	App.toggleLights = true;
+// 	App.petInstance.sleepiness += 1;
+// 	$("#screenContainer").css('backgroundColor', 'rgba(0,0,0,1)');
+// 	console.log(`Lights on! Sleepiness is now ${App.petInstance.sleepiness}`);
+// });
