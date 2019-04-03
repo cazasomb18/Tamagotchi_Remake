@@ -21,10 +21,6 @@ class Pet {
 
 
 
-
-
-
-
 const App = {
     timerHandle: 0,
     toggleLights: true,
@@ -111,8 +107,19 @@ const App = {
     		let a = Math.random();
     		$("#tamagotchiAvatar").css("opacity", `${a}`);
     		} else ($("#tamagotchiAvatar").css("opacity", '1'));
-    	},
-	};
+    },
+    animateAvatar: function(){
+			if (this.timerHandle % 2 === 0){
+				$('#image').css("padding-left", 50)
+				$('#image').css("padding-right", 0)
+
+			} else if (this.timerHandle % 2 === 1)
+				$('#image').css("padding-left", 0)
+				$("#image").css("padding-right", 50);
+			}
+};
+
+
 
 
 
