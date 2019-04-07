@@ -43,7 +43,7 @@ const App = {
             App.morphAvatar();
             App.animateAvatar();
             console.log(App.petInstance);
-        }, 300)
+        }, 1000)
         if (this.petInstance.isAlive = false) {
             clearInterval(deathFunction());
         }
@@ -79,7 +79,6 @@ const App = {
             this.App = null;
             this.setInterval = null;
             this.timerHandle = 0;
-
             console.log('YOU ARE A TERRIBLE PARENT AND YOUR PET HAS DIED!!!');
         }
     },
@@ -118,13 +117,6 @@ const App = {
 				$("#image").css("padding-right", 50);
 			}
 };
-
-
-
-
-
-
-
 
 
 
